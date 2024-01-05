@@ -4,9 +4,10 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const main = document.getElementById("main");
 
-const SEARCH_URL = "https://api.themoviedb.org/3/search/movie?query=";
+const SEARCH_URL =
+  "https://api.themoviedb.org/3/search/movie?include_adult=false&include_video=true?query=";
 const API_URL =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc";
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true?sort_by=popularity.desc";
 const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280/";
 const options = {
   method: "GET",
@@ -60,11 +61,24 @@ function displayMovies(movies) {
       const img = element.querySelector("img");
       const id = img.id;
       console.log(id);
-      fetch(`https://api.themoviedb.org/3/movie/${id}?`, options)
+      fetch(
+        `https://api.themoviedb.org/3/movie/${id}/videos?include_adult=false&include_video=true?`,
+        options
+      )
         .then((res) => res.json())
-        .then((data) => console.log(data));
-
-      // getMovies(`https://api.themoviedb.org/3/movie/${id}?`, options);
+        .then((data) => {
+          const trailers = data.results.filter(
+            (result) => result.type === "Trailer"
+          );
+          console.log(trailers);
+          const trailer = trailers[0];
+          console.log(trailer);
+          const url = "https://www.youtube.com/watch?v=" + trailer.key;
+          window.open(url, "_blank");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
   });
 }
