@@ -77,16 +77,13 @@ function displayMovies(movies) {
             "https://www.youtube.com/embed/" +
             trailer.key +
             "?autoplay=1&controls=0&disablekb=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&start=15";
-          // const url = "https://www.youtube.com/watch?v=" + trailer.key;
-          // window.open(url, "_blank");
 
           const iframe = `
-          <iframe class="iframe" allow="accelerometer">
+          <iframe class="iframe" allow="accelerometer" src="${url}">
           </iframe>
           `;
+
           app.innerHTML += iframe;
-          const iframeElement = document.querySelector("iframe");
-          iframeElement.src = url;
         })
         .catch((error) => {
           console.log(error);
