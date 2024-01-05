@@ -4,7 +4,7 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const main = document.getElementById("main");
 
-const SEARCH_URL = "https://api.themoviedb.org/3/search/keyword?query=";
+const SEARCH_URL = "https://api.themoviedb.org/3/search/movie?query=";
 const API_URL =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc";
 const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280/";
@@ -26,6 +26,7 @@ async function getMovies(url) {
   return data;
 }
 
+// Search Event Listener
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchValue = search.value;
@@ -40,11 +41,11 @@ form.addEventListener("submit", (e) => {
 function displayMovies(movies) {
   main.innerHTML = "";
   movies.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+    const { id, title, poster_path, vote_average, overview } = movie;
     const moviesElement = document.createElement("div");
     moviesElement.classList.add("movie");
     moviesElement.innerHTML = `
-    <img src="${IMAGE_PATH + poster_path}" alt="${title}">
+    <img id="${id}" src="${IMAGE_PATH + poster_path}" alt="${title}">
     <div class="movie-info">
       <h3>${title}</h3>
       <span class="${getClassesByRating(vote_average)}">${vote_average}</span>
@@ -54,8 +55,17 @@ function displayMovies(movies) {
       </div>
     </div>
   `;
+    const element = main.appendChild(moviesElement);
+    element.addEventListener("click", () => {
+      const img = element.querySelector("img");
+      const id = img.id;
+      console.log(id);
+      fetch(`https://api.themoviedb.org/3/movie/${id}?`, options)
+        .then((res) => res.json())
+        .then((data) => console.log(data));
 
-    main.appendChild(moviesElement);
+      // getMovies(`https://api.themoviedb.org/3/movie/${id}?`, options);
+    });
   });
 }
 

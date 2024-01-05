@@ -43,7 +43,7 @@ header {
   flex-wrap: wrap;
 }
 .movie {
-  width: 300px;
+  width: 200px;
   margin: 1rem;
   background-color: var(--color_1);
   box-shadow: 0 4px 5px black;
@@ -52,7 +52,7 @@ header {
   border-radius: 3px;
 }
 .movie img {
-  width: 100%;
+  width: 200px;
 }
 .movie-info {
   color: var(--color_4);
@@ -60,12 +60,13 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem 1rem;
-  letter-spacing: 1px;
+  font-size: small;
 }
 .movie-info span {
   background-color: var(--color_2);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
+  align-items: center;
   font-weight: bold;
 }
 
@@ -79,16 +80,17 @@ header {
   color: red;
 }
 .overview {
-  background-color: var(--color_2);
-  color: var(--color_5);
-  padding: 2rem;
+  background-color: var(--color_4);
+  color: var(--color_2);
+  padding: 1.5rem;
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
   max-height: 100%;
   transform: translateY(101%);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
+  text-align: center;
 }
 .movie:hover .overview {
   transform: translateY(0);
