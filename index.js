@@ -1,4 +1,7 @@
-import "./style.css";
+import { initApp } from "./app/app.js";
+
+const app = document.querySelector("#app");
+initApp(app);
 
 const form = document.getElementById("form");
 const search = document.getElementById("search");
@@ -38,7 +41,7 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-// Display movies
+/* // Display movies
 function displayMovies(movies) {
   main.innerHTML = "";
   movies.forEach((movie) => {
@@ -56,7 +59,19 @@ function displayMovies(movies) {
       </div>
     </div>
   `;
-    const element = main.appendChild(moviesElement);
+
+    // Secciones dentro del MAIN
+    const section0 = document.querySelector(".section0");
+    const section1 = document.querySelector(".section1");
+    const section2 = document.querySelector(".section2");
+    const section3 = document.querySelector(".section3");
+    const section4 = document.querySelector(".section4");
+    const section5 = document.querySelector(".section5");
+    const section6 = document.querySelector(".section6");
+    const section7 = document.querySelector(".section7");
+
+    // const element = section0.appendChild(moviesElement);
+
     element.addEventListener("click", () => {
       const img = element.querySelector("img");
       const id = img.id;
@@ -103,3 +118,4 @@ function getClassesByRating(rating) {
 }
 
 getMovies(API_URL);
+ */
