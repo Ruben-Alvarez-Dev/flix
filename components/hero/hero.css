@@ -1,5 +1,5 @@
 .hero {
-  background-color: rgb(255, 0, 0);
+  /* background-color: rgb(255, 0, 0); */
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -15,7 +15,16 @@
 .heroLeft {
   background-image: linear-gradient(
     to right,
-    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 1) 45%,
+    rgba(0, 0, 0, 0.9) 55%,
+    rgba(0, 0, 0, 0.8) 60%,
+    rgba(0, 0, 0, 0.7) 65%,
+    rgba(0, 0, 0, 0.6) 70%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.3) 85%,
+    rgba(0, 0, 0, 0.2) 90%,
+    rgba(0, 0, 0, 0.1) 95%,
     rgba(0, 0, 0, 0) 100%
   );
   width: 50vw;
@@ -25,23 +34,11 @@
   left: 0;
   z-index: 5;
 }
-.hero img {
+.frame {
   width: 100vw;
-  height: 75vh;
-  object-fit: cover;
-  position: relative;
+  height: 100vh;
+  position: fixed;
   top: 0;
-  z-index: 2;
-}
-.iframe {
-  width: 250vw;
-  height: 200vh;
-  top: -75vh;
-  position: absolute;
-  z-index: -1;
-  border: none;
-  opacity: 0%;
-  transition: ease;
-  transition-duration: 0.5s;
-  overflow: hidden;
+  left: 0;
+  z-index: 0;
 }

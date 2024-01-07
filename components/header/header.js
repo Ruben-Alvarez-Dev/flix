@@ -1,7 +1,7 @@
 import "./header.css";
 
 export const headerComponent = () => {
-  return `
+  /*   return `
   <header id="header" className="header">
     <form action="" id="form" className="form">
         <input
@@ -12,5 +12,5 @@ export const headerComponent = () => {
         />
       </form>
     </header>
-  `;
+  `; */
 };

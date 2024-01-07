@@ -6,5 +6,6 @@ import * as main from "../components/main/main.js";
 
 export const initApp = (target) => {
   target.innerHTML =
-    header.headerComponent() + hero.heroComponent() + main.mainComponent();
+    /* header.headerComponent() +  */ hero.heroComponent() +
+    main.mainComponent();
 };

@@ -1,6 +1,14 @@
-import { movieCard } from "../components/main/movieCard/movieCard.js";
+import * as movieCard from "../components/main/movieCard/movieCard.js";
 import * as vars from "./vars.js";
 
+export const ignition = async () => {
+  getMovies(vars.URL_API_1, vars.options, section1);
+  getMovies(vars.URL_API_2, vars.options, section2);
+  getMovies(vars.URL_API_3, vars.options, section3);
+  getMovies(vars.URL_API_4, vars.options, section4);
+  getMovies(vars.URL_API_5, vars.options, section5);
+  getMovies(vars.URL_API_6, vars.options, section6);
+};
 export const getMovies = async (url, options, target) => {
   const res = await fetch(url, options);
   const data = await res.json();
@@ -23,7 +31,7 @@ export const listMovies = (mappedMovies, target) => {
   let listMovies = [];
   mappedMovies.forEach((movie) => {
     /* const { id, title, poster } = movie; */
-    const card = movieCard(movie);
+    const card = movieCard.template(movie);
     listMovies += card;
   });
   renderMovies(listMovies, target);
@@ -36,22 +44,13 @@ export const renderMovies = (mappedMovies, target) => {
   target.innerHTML += mappedMovies;
   const toListenInThisTarget = target.querySelectorAll(".movieCard");
   putListeners(toListenInThisTarget);
-
-  return;
-
-  /* mappedMovies.forEach((movie) => {
-    const { id, title, poster_path } = movie;
-    const card = movieCard(movie);
-    moviesArray += card;
-  });
-  target.innerHTML += movie; */
 };
 export const putListeners = (movieCards) => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.addEventListener("click", () => {
-          console.log("BUENOS DIAS");
+          click(entry.target);
         });
         observer.unobserve(entry.target);
       }
@@ -61,15 +60,7 @@ export const putListeners = (movieCards) => {
     observer.observe(card);
   });
 };
-
-export const setupCards = async () => {
-  getMovies(vars.URL_API_1, vars.options, section1);
-  getMovies(vars.URL_API_2, vars.options, section2);
-  getMovies(vars.URL_API_3, vars.options, section3);
-  getMovies(vars.URL_API_4, vars.options, section4);
-  getMovies(vars.URL_API_5, vars.options, section5);
-  getMovies(vars.URL_API_6, vars.options, section6);
-};
-export const ignition = async () => {
-  setupCards();
+export const click = async (card) => {
+  const urlTrailer = await movieCard.getTrailer(card.id);
+  await movieCard.renderTrailer(urlTrailer, frame);
 };
