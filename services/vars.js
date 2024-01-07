@@ -14,8 +14,20 @@ export const movieCard = document.getElementById("movieCard");
 
 export const URL_SEARCH =
   "https://api.themoviedb.org/3/search/movie?include_adult=false&include_video=true?query=";
-export const URL_API =
+
+export const URL_API_1 =
   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true?sort_by=popularity.desc";
+export const URL_API_2 =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&sort_by=vote_count.desc&with_genres=12";
+export const URL_API_3 =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&sort_by=vote_count.desc&with_genres=27";
+export const URL_API_4 =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&sort_by=vote_count.desc&with_genres=80";
+export const URL_API_5 =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&sort_by=vote_count.desc&with_genres=10402";
+export const URL_API_6 =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&sort_by=vote_count.desc&with_genres=10752";
+
 export const PATH_IMAGE = "https://image.tmdb.org/t/p/w1280/";
 export const options = {
   method: "GET",

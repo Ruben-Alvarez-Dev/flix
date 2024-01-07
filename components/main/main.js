@@ -12,6 +12,6 @@ export const mainComponent = () => {
         <section id="section6" class="section">Section 6</section>
         <section id="section7" class="section7">Section 7</section>
     </main>
-    <div id="gallery" class="gallery"></div>
+    
     `;
 };
