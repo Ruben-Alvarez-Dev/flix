@@ -22,16 +22,22 @@ export const mapMovies = (rawMovies, target) => {
 export const listMovies = (mappedMovies, target) => {
   let listMovies = [];
   mappedMovies.forEach((movie) => {
-    const { id, title, poster } = movie;
+    /* const { id, title, poster } = movie; */
     const card = movieCard(movie);
     listMovies += card;
   });
   renderMovies(listMovies, target);
   /* return listMovies; */
+  /*   putListeners();
+   */
 };
 export const renderMovies = (mappedMovies, target) => {
   target.innerHTML = "";
   target.innerHTML += mappedMovies;
+  const toListenInThisTarget = target.querySelectorAll(".movieCard");
+  putListeners(toListenInThisTarget);
+
+  return;
 
   /* mappedMovies.forEach((movie) => {
     const { id, title, poster_path } = movie;
@@ -40,13 +46,30 @@ export const renderMovies = (mappedMovies, target) => {
   });
   target.innerHTML += movie; */
 };
-export const putListeners = () => {};
+export const putListeners = (movieCards) => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.addEventListener("click", () => {
+          console.log("BUENOS DIAS");
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+  movieCards.forEach((card) => {
+    observer.observe(card);
+  });
+};
 
-export const ignition = () => {
+export const setupCards = async () => {
   getMovies(vars.URL_API_1, vars.options, section1);
   getMovies(vars.URL_API_2, vars.options, section2);
   getMovies(vars.URL_API_3, vars.options, section3);
   getMovies(vars.URL_API_4, vars.options, section4);
   getMovies(vars.URL_API_5, vars.options, section5);
   getMovies(vars.URL_API_6, vars.options, section6);
+};
+export const ignition = async () => {
+  setupCards();
 };
