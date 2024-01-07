@@ -1,0 +1,16 @@
+.movieCard {
+  width: 28vw;
+  height: 30vh;
+  margin: 1vh 0vh 1vh 0vh;
+  background-color: var(--color_1);
+  box-shadow: 0 4px 5px black;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  z-index: 4;
+  flex-shrink: 0;
+}
+.movieCard img {
+  width: 100%;
+  z-index: 5;
+}

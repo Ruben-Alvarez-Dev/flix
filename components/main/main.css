@@ -2,106 +2,59 @@ main {
   background-color: black;
   /* background-color: var(--color_2); */
   width: 100vw;
-  height: 75vh;
-  top: 25vh;
+  height: 85vh;
+  top: 15vh;
   gap: 2vh;
   display: flex;
   flex-flow: row wrap;
   position: absolute;
   overflow-y: auto;
-  /* -webkit-mask: linear-gradient(
+  scrollbar-width: none;
+  -webkit-mask: linear-gradient(
     to top,
     rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 0) 75%
   );
   mask: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 75%);
   z-index: 2;
- */
+
   scroll-snap-type: y mandatory;
   scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  z-index: 6;
+}
+main::-webkit-scrollbar {
+  display: none;
 }
 .section {
-  width: 100%;
-  height: 29vh;
   background-color: beige;
-  z-index: 3;
+  width: 100%;
+  height: 33vh;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: auto;
+  scrollbar-width: none;
 
   scroll-snap-align: start;
+  z-index: 3;
 }
-
-#section0 {
-  height: 29vh;
-}
-#section7 {
-  height: 13vh;
+.section::-webkit-scrollbar {
+  display: none;
 }
 #section0 {
+  height: 33vh;
   background-color: rgba(0, 0, 0, 0);
 }
+#section7 {
+  height: 15vh;
+}
 .gallery {
-  width: 100vh;
-  height: 31vh;
-  top: 55vh;
+  width: 100vw;
+  height: 35vh;
+  top: 49vh;
   left: 0vh;
   position: absolute;
 
   z-index: 10;
   background-color: rgba(165, 42, 42, 0.5);
-}
-.movie {
-  width: 28vw;
-  height: 30vh;
-  margin: 1vh 0vh 1vh 0vh;
-  background-color: var(--color_1);
-  box-shadow: 0 4px 5px black;
-  position: relative;
-  overflow: hidden;
-  border-radius: 3px;
-  z-index: 4;
-}
-.movie img {
-  width: 100%;
-  z-index: 5;
-}
-.movie-info {
-  color: var(--color_4);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.2vh;
-  font-size: smaller;
-  z-index: 6;
-}
-.movie-info span {
-  background-color: var(--color_2);
-  padding: 0.25rem 0.5rem;
-  border-radius: 3px;
-  font-weight: bold;
-  z-index: 5;
-}
-.movie-info span.green {
-  color: lightgreen;
-}
-.movie-info span.orange {
-  color: orange;
-}
-.movie-info span.red {
-  color: red;
-}
-.overview {
-  background-color: var(--color_4);
-  color: var(--color_2);
-  padding: 1.5rem;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  max-height: 100%;
-  transform: translateY(101%);
-  transition: transform 0.4s ease;
-  text-align: center;
-  z-index: 6;
-}
-.movie:hover .overview {
-  transform: translateY(0);
 }

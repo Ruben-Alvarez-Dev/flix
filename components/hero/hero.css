@@ -1,5 +1,5 @@
 .hero {
-  background-color: black;
+  background-color: rgb(255, 0, 0);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -11,6 +11,19 @@
       rgba(0, 0, 0, 0.75) 0%,
       rgba(255, 255, 255, 0) 100%
     ); */
+}
+.heroLeft {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
 }
 .hero img {
   width: 100vw;
@@ -27,7 +40,7 @@
   position: absolute;
   z-index: -1;
   border: none;
-  opacity: 100%;
+  opacity: 0%;
   transition: ease;
   transition-duration: 0.5s;
   overflow: hidden;
