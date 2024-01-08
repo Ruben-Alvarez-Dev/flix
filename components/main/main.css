@@ -34,9 +34,9 @@ main::-webkit-scrollbar {
   flex-flow: row nowrap;
   overflow: auto;
   scrollbar-width: none;
-
   scroll-snap-align: start;
   z-index: 3;
+  transition: all 0.75s ease-in-out;
 }
 .section::-webkit-scrollbar {
   display: none;

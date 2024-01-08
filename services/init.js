@@ -8,6 +8,7 @@ export const ignition = async () => {
   getMovies(vars.URL_API_4, vars.options, section4);
   getMovies(vars.URL_API_5, vars.options, section5);
   getMovies(vars.URL_API_6, vars.options, section6);
+  await whereIsSection(document.querySelectorAll("section"));
 };
 export const getMovies = async (url, options, target) => {
   const res = await fetch(url, options);
@@ -42,8 +43,8 @@ export const listMovies = (mappedMovies, target) => {
 export const renderMovies = (mappedMovies, target) => {
   target.innerHTML = "";
   target.innerHTML += mappedMovies;
-  const toListenInThisTarget = target.querySelectorAll(".movieCard");
-  putListeners(toListenInThisTarget);
+  const cardsToListen = target.querySelectorAll(".movieCard");
+  putListeners(cardsToListen);
 };
 export const putListeners = (movieCards) => {
   const observer = new IntersectionObserver((entries) => {
@@ -68,6 +69,9 @@ export const putListeners = (movieCards) => {
         });
         entry.target.addEventListener("click", () => {
           mouseClick(entry.target);
+          setTimeout(() => {
+            heroTrailer.style.opacity = "1";
+          }, 750);
         });
         observer.unobserve(entry.target);
       }
@@ -84,4 +88,21 @@ export const mouseOver = async (card) => {
 export const mouseClick = async (card) => {
   const urlTrailer = await movieCard.getTrailer(card.id);
   await movieCard.renderTrailer(urlTrailer, heroTrailer);
+};
+export const whereIsSection = (sections) => {
+  main.addEventListener("scroll", () => {
+    sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+      if (
+        section.getBoundingClientRect().top > main.offsetHeight / 2 &&
+        section.getBoundingClientRect().bottom < main.offsetHeight
+      ) {
+        section.style.opacity = "1";
+      } else if (section.getBoundingClientRect().top < main.offsetHeight / 2) {
+        section.style.opacity = "0";
+      } else {
+        section.style.opacity = "0.5";
+      }
+    });
+  });
 };

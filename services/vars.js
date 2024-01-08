@@ -8,9 +8,10 @@ export const hero = document.getElementById("hero");
 export const heroShadow = document.getElementById("heroShadow");
 export const heroTrailer = document.getElementById("heroTrailer");
 export const heroBackdrop = document.getElementById("heroBackdrop");
+export const gallery = document.getElementById("gallery");
 
 export const main = document.getElementById("main");
-export const section = document.getElementById("section");
+export const sections = document.getElementById("section");
 export const movieCard = document.getElementById("movieCard");
 
 export const URL_SEARCH =

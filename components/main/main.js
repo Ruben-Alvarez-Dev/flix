@@ -2,6 +2,7 @@ import "./main.css";
 
 export const mainComponent = () => {
   return `
+    
     <main id="main" class="main">
         <section id="section0" class="section">Section 0</section>
         <section id="section1" class="section">Section 1</section>
@@ -12,6 +13,5 @@ export const mainComponent = () => {
         <section id="section6" class="section">Section 6</section>
         <section id="section7" class="section7">Section 7</section>
     </main>
-    
     `;
 };

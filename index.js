@@ -3,5 +3,4 @@ import * as vars from "./services/vars.js";
 import * as init from "./services/init.js";
 
 initApp(vars.app);
-
-init.ignition();
+init.ignition().then(() => {});
