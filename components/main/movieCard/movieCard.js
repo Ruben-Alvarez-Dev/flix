@@ -1,6 +1,5 @@
 import "./movieCard.css";
 import * as vars from "../../../services/vars";
-import * as iframe from "../../hero/iframe/iframe.js";
 
 export const template = (movie) => `
 <div id="${movie.id}" class="movieCard">
@@ -23,7 +22,29 @@ export const getTrailer = async (id) => {
   return urlTrailer;
 };
 export const renderTrailer = (urlTrailer, target) => {
-  target.innerHTML = iframe.template(urlTrailer);
-  /* document.querySelector("#iframe").setAttribute("src", urlTrailer); */
+  /* heroTrailer.classList.remove("reveal"); */
+  target.style.opacity = "0";
+
+  target.setAttribute("src", urlTrailer);
+  setTimeout(() => {
+    target.style.opacity = "1";
+  }, 750);
+  /* heroTrailer.classList.add("reveal"); */
+
+  return;
+};
+export const getBackdrop = async (id) => {
+  const response = await fetch(
+    vars.URL_MOVIE_ID + id + "/images",
+    vars.options
+  );
+  const data = await response.json();
+  const backdrops = await data.backdrops;
+  const backdrop = backdrops[0].file_path;
+  const urlBackdrop = vars.PATH_IMAGE + backdrop;
+  return urlBackdrop;
+};
+export const renderBackdrop = async (urlBackdrop) => {
+  heroBackdrop.style.backgroundImage = `url(${urlBackdrop})`;
   return;
 };

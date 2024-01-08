@@ -1,9 +1,0 @@
-iframe {
-  border: 1px solid var(--color_1);
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  bottom: 25vh;
-  left: 25vw;
-  scale: 1.6;
-}

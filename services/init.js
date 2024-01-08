@@ -49,8 +49,25 @@ export const putListeners = (movieCards) => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        entry.target.addEventListener("mouseover", () => {
+          setTimeout(() => {
+            heroBackdrop.classList.add("reveal");
+            heroTrailer.classList.add("reveal");
+            mouseOver(entry.target);
+          }, 750);
+        });
+        entry.target.addEventListener("mouseout", () => {
+          setTimeout(() => {
+            heroBackdrop.classList.remove("reveal");
+            /* heroTrailer.classList.remove("reveal"); */
+            heroTrailer.style.opacity = "0";
+            setTimeout(() => {
+              heroTrailer.setAttribute("src", "");
+            }, 750);
+          }, 750);
+        });
         entry.target.addEventListener("click", () => {
-          click(entry.target);
+          mouseClick(entry.target);
         });
         observer.unobserve(entry.target);
       }
@@ -60,7 +77,11 @@ export const putListeners = (movieCards) => {
     observer.observe(card);
   });
 };
-export const click = async (card) => {
+export const mouseOver = async (card) => {
+  const urlBackdrop = await movieCard.getBackdrop(card.id);
+  await movieCard.renderBackdrop(urlBackdrop, heroBackdrop);
+};
+export const mouseClick = async (card) => {
   const urlTrailer = await movieCard.getTrailer(card.id);
-  await movieCard.renderTrailer(urlTrailer, frame);
+  await movieCard.renderTrailer(urlTrailer, heroTrailer);
 };

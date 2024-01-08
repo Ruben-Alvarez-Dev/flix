@@ -12,7 +12,7 @@
       rgba(255, 255, 255, 0) 100%
     ); */
 }
-.heroLeft {
+.heroShadow {
   background-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 1) 45%,
@@ -34,11 +34,28 @@
   left: 0;
   z-index: 5;
 }
-.frame {
+.heroTrailer {
+  border: 1px solid var(--color_1);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  bottom: 25vh;
+  left: 25vw;
+  scale: 1.6;
+  opacity: 0;
+  transition: 0.75s;
+}
+.heroBackdrop {
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 0;
+  opacity: 0;
+  transition: 0.75s;
+}
+.reveal {
+  transition: 0.75s ease-in-out;
+  opacity: 1;
 }

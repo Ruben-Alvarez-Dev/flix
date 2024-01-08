@@ -5,9 +5,9 @@ export const form = document.getElementById("form");
 export const search = document.getElementById("search");
 
 export const hero = document.getElementById("hero");
-export const heroLeft = document.getElementById("heroLeft");
-export const frame = document.getElementById("frame");
-export const iframe = document.getElementById("iframe");
+export const heroShadow = document.getElementById("heroShadow");
+export const heroTrailer = document.getElementById("heroTrailer");
+export const heroBackdrop = document.getElementById("heroBackdrop");
 
 export const main = document.getElementById("main");
 export const section = document.getElementById("section");
@@ -17,6 +17,7 @@ export const URL_SEARCH =
   "https://api.themoviedb.org/3/search/movie?include_adult=false&include_video=true?query=";
 export const URL_MOVIE_ID = "https://api.themoviedb.org/3/movie/";
 export const URL_YOUTUBE_INIT = "https://www.youtube.com/embed/";
+
 export const URL_YOUTUBE_END =
   "?autoplay=1&controls=0&disablekb=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&start=5";
 
