@@ -41,9 +41,11 @@ export const listMovies = (mappedMovies, target) => {
    */
 };
 export const renderMovies = (mappedMovies, target) => {
-  target.innerHTML = "";
-  target.innerHTML += mappedMovies;
-  const cardsToListen = target.querySelectorAll(".movieCard");
+  const parent = target.parentNode;
+  parent.innerHTML = `<h2>${target.id}</h2>`;
+  /* target.innerHTML = `<h2>${target.id}</h2>`; */
+  parent.innerHTML += mappedMovies;
+  const cardsToListen = parent.querySelectorAll(".movieCard");
   putListeners(cardsToListen);
 };
 export const putListeners = (movieCards) => {
@@ -91,7 +93,7 @@ export const mouseClick = async (card) => {
 };
 export const whereIsSection = (sections) => {
   main.addEventListener("scroll", () => {
-    sections = document.querySelectorAll("section");
+    sections = document.querySelectorAll(".sectionContainer");
     sections.forEach((section) => {
       if (
         section.getBoundingClientRect().top > main.offsetHeight / 2 &&

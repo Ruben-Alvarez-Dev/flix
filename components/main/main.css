@@ -15,7 +15,7 @@ main {
     rgba(0, 0, 0, 1) 50%,
     rgba(0, 0, 0, 0) 75%
   );
-  mask: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 75%);
+  mask: linear-gradient(to top, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 90%);
   z-index: 2;
 
   scroll-snap-type: y mandatory;
@@ -26,19 +26,38 @@ main {
 main::-webkit-scrollbar {
   display: none;
 }
-.section {
-  background-color: beige;
+.sectionContainer {
+  /*   background-color: beige;
+ */
   width: 100%;
-  height: 33vh;
+  /* min-height: 200px; */
+  max-height: 33vh;
   display: flex;
   flex-flow: row nowrap;
+  position: relative;
   overflow: auto;
   scrollbar-width: none;
   scroll-snap-align: start;
   z-index: 3;
   transition: all 0.75s ease-in-out;
 }
-.section::-webkit-scrollbar {
+.section {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.sectionContainer h2 {
+  font-size: 3vh;
+  color: bisque;
+
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000, 5px 5px 15px rgb(0, 0, 0);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+}
+.sectionContainer::-webkit-scrollbar {
   display: none;
 }
 #section0 {
@@ -46,9 +65,12 @@ main::-webkit-scrollbar {
   background-color: rgba(0, 0, 0, 0);
 }
 #section7 {
+  height: 100%;
+}
+#sectionContainer7 {
   height: 15vh;
 }
-.gallery {
+/* .gallery {
   width: 100vw;
   height: 35vh;
   top: 49vh;
@@ -58,3 +80,4 @@ main::-webkit-scrollbar {
   z-index: 10;
   background-color: rgba(165, 42, 42, 0.5);
 }
+ */

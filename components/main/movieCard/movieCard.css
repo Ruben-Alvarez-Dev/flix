@@ -1,16 +1,31 @@
 .movieCard {
-  width: 28vw;
-  height: 30vh;
-  margin: 1vh 0vh 1vh 0vh;
-  background-color: var(--color_1);
-  box-shadow: 0 4px 5px black;
+  width: 280px;
+  max-height: 29vh;
+  margin: 1vh 0.5vh 1vh 0.5vh;
+  /*   background-color: var(--color_1);
+ */
+  /*   box-shadow: 0 4px 5px black;
+ */
   position: relative;
   overflow: hidden;
-  border-radius: 3px;
-  z-index: 4;
+  border-radius: 25px;
+
+  border: 1px solid rgba(0, 223, 74, 0);
+  transform: scale(1);
+  transition: 0.75s;
+
   flex-shrink: 0;
+
+  z-index: 4;
 }
 .movieCard img {
   width: 100%;
+  position: relative;
   z-index: 5;
+}
+.movieCard:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(255, 255, 255, 0.5) 5px 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: 0.75s;
 }
