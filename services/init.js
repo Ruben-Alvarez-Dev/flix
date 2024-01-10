@@ -62,7 +62,6 @@ export const putListeners = (movieCards) => {
         entry.target.addEventListener("mouseout", () => {
           setTimeout(() => {
             heroBackdrop.classList.remove("reveal");
-            /* heroTrailer.classList.remove("reveal"); */
             heroTrailer.style.opacity = "0";
             setTimeout(() => {
               heroTrailer.setAttribute("src", "");
@@ -85,11 +84,18 @@ export const putListeners = (movieCards) => {
 };
 export const mouseOver = async (card) => {
   const urlBackdrop = await movieCard.getBackdrop(card.id);
-  await movieCard.renderBackdrop(urlBackdrop, heroBackdrop);
+
+  const sectionContainer = card.closest(".sectionContainer");
+  if (sectionContainer && sectionContainer.getAttribute("active")) {
+    await movieCard.renderBackdrop(urlBackdrop, heroBackdrop);
+  }
 };
 export const mouseClick = async (card) => {
   const urlTrailer = await movieCard.getTrailer(card.id);
-  await movieCard.renderTrailer(urlTrailer, heroTrailer);
+  const sectionContainer = card.closest(".sectionContainer");
+  if (sectionContainer && sectionContainer.getAttribute("active")) {
+    await movieCard.renderTrailer(urlTrailer, heroTrailer);
+  }
 };
 export const whereIsSection = (sections) => {
   main.addEventListener("scroll", () => {
@@ -100,10 +106,13 @@ export const whereIsSection = (sections) => {
         section.getBoundingClientRect().bottom < main.offsetHeight
       ) {
         section.style.opacity = "1";
+        section.setAttribute("active", "true");
       } else if (section.getBoundingClientRect().top < main.offsetHeight / 2) {
         section.style.opacity = "0";
+        section.removeAttribute("active");
       } else {
         section.style.opacity = "0.5";
+        section.removeAttribute("active");
       }
     });
   });
