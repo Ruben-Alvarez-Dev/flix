@@ -27,5 +27,4 @@
   transform: scale(1.05);
   box-shadow: rgba(255, 255, 255, 0.5) 5px 5px 10px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: 0.75s;
 }

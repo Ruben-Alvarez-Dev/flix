@@ -3,12 +3,17 @@ import * as vars from "./vars.js";
 
 export const ignition = async () => {
   getMovies(vars.URL_API_1, vars.options, section1);
-  getMovies(vars.URL_API_2, vars.options, section2);
-  getMovies(vars.URL_API_3, vars.options, section3);
-  getMovies(vars.URL_API_4, vars.options, section4);
-  getMovies(vars.URL_API_5, vars.options, section5);
-  getMovies(vars.URL_API_6, vars.options, section6);
+  await getMovies(vars.URL_API_2, vars.options, section2);
+  await getMovies(vars.URL_API_3, vars.options, section3);
+  await getMovies(vars.URL_API_4, vars.options, section4);
+  await getMovies(vars.URL_API_5, vars.options, section5);
+  await getMovies(vars.URL_API_6, vars.options, section6);
   await whereIsSection(document.querySelectorAll("section"));
+
+  const containers = await document.querySelectorAll(".sectionContainer");
+  if (containers.length > 0) {
+    await containers[0].scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 };
 export const getMovies = async (url, options, target) => {
   const res = await fetch(url, options);
@@ -85,29 +90,30 @@ export const putListeners = (movieCards) => {
 export const mouseOver = async (card) => {
   const urlBackdrop = await movieCard.getBackdrop(card.id);
 
-  const sectionContainer = card.closest(".sectionContainer");
+  const sectionContainer = await card.closest(".sectionContainer");
   if (sectionContainer && sectionContainer.getAttribute("active")) {
     await movieCard.renderBackdrop(urlBackdrop, heroBackdrop);
   }
 };
 export const mouseClick = async (card) => {
   const urlTrailer = await movieCard.getTrailer(card.id);
-  const sectionContainer = card.closest(".sectionContainer");
-  if (sectionContainer && sectionContainer.getAttribute("active")) {
-    await movieCard.renderTrailer(urlTrailer, heroTrailer);
-  }
+  await movieCard.renderTrailer(urlTrailer, heroTrailer);
 };
+
 export const whereIsSection = (sections) => {
   main.addEventListener("scroll", () => {
     sections = document.querySelectorAll(".sectionContainer");
     sections.forEach((section) => {
+      const thirdQuarterTop = app.offsetHeight * (2 / 4);
+      const thirdQuarterBottom = app.offsetHeight * (3 / 4);
+
       if (
-        section.getBoundingClientRect().top > main.offsetHeight / 2 &&
-        section.getBoundingClientRect().bottom < main.offsetHeight
+        section.getBoundingClientRect().top <= thirdQuarterBottom &&
+        section.getBoundingClientRect().top >= thirdQuarterTop
       ) {
         section.style.opacity = "1";
         section.setAttribute("active", "true");
-      } else if (section.getBoundingClientRect().top < main.offsetHeight / 2) {
+      } else if (section.getBoundingClientRect().top < thirdQuarterTop) {
         section.style.opacity = "0";
         section.removeAttribute("active");
       } else {

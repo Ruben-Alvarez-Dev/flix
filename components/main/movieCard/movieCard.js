@@ -45,6 +45,6 @@ export const getBackdrop = async (id) => {
   return urlBackdrop;
 };
 export const renderBackdrop = async (urlBackdrop) => {
-  heroBackdrop.style.backgroundImage = `url(${urlBackdrop})`;
+  await (heroBackdrop.style.backgroundImage = `url(${urlBackdrop})`);
   return;
 };
