@@ -8,13 +8,25 @@ export const ignition = async () => {
   await getMovies(vars.URL_API_4, vars.options, section4);
   await getMovies(vars.URL_API_5, vars.options, section5);
   await getMovies(vars.URL_API_6, vars.options, section6);
-  await whereIsSection(document.querySelectorAll("section"));
 
-  const containers = await document.querySelectorAll(".sectionContainer");
+  const containers = document.querySelectorAll(".sectionContainer");
   if (containers.length > 0) {
-    await containers[0].scrollIntoView({ behavior: "smooth", block: "start" });
+    containers[0].scrollIntoView({ behavior: "smooth", block: "start" });
+    containers.forEach((container) => {
+      container.style.display = "flex";
+      container.style.transition = "opacity 1s ease-in-out";
+      setTimeout(() => {
+        container.style.opacity = "1";
+        containers[1].setAttribute("active", "true");
+        containers[2].style.opacity = "0.5";
+      }, 150);
+    });
   }
+  setTimeout(() => {
+    whereIsSection(document.querySelectorAll("section"));
+  }, 300);
 };
+
 export const getMovies = async (url, options, target) => {
   const res = await fetch(url, options);
   const data = await res.json();
@@ -97,7 +109,7 @@ export const mouseOver = async (card) => {
 };
 export const mouseClick = async (card) => {
   const urlTrailer = await movieCard.getTrailer(card.id);
-  await movieCard.renderTrailer(urlTrailer, heroTrailer);
+  movieCard.renderTrailer(urlTrailer, heroTrailer);
 };
 
 export const whereIsSection = (sections) => {
