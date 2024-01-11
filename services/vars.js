@@ -5,6 +5,7 @@ export const form = document.getElementById("form");
 export const search = document.getElementById("search");
 
 export const hero = document.getElementById("hero");
+export const heroLogo = document.getElementById("heroLogo");
 export const heroShadow = document.getElementById("heroShadow");
 export const heroTrailer = document.getElementById("heroTrailer");
 export const heroBackdrop = document.getElementById("heroBackdrop");
@@ -13,6 +14,25 @@ export const gallery = document.getElementById("gallery");
 export const main = document.getElementById("main");
 export const sections = document.getElementById("section");
 export const movieCard = document.getElementById("movieCard");
+
+export let movieObj = {
+  id: "",
+  title: "",
+  description: "",
+  genre: "",
+  release: "",
+  rating: "",
+  cast: {
+    id: "",
+    name: "",
+    character: "",
+    img: "",
+  },
+  poster: "",
+  logo: "",
+  backdrop: "",
+  trailer: "",
+};
 
 export const URL_SEARCH =
   "https://api.themoviedb.org/3/search/movie?include_adult=false&include_video=true?query=";

@@ -6,6 +6,7 @@ export const template = (movie) => `
   <img id="${movie.id}" src="${movie.poster}" alt="${movie.title}">
 </div>
 `;
+
 export const getTrailer = async (id) => {
   const response = await fetch(
     vars.URL_MOVIE_ID + id + "/videos",
@@ -38,13 +39,22 @@ export const getBackdrop = async (id) => {
     vars.URL_MOVIE_ID + id + "/images",
     vars.options
   );
+
   const data = await response.json();
   const backdrops = await data.backdrops;
   const backdrop = backdrops[0].file_path;
   const urlBackdrop = vars.PATH_IMAGE + backdrop;
+
   return urlBackdrop;
 };
 export const renderBackdrop = async (urlBackdrop) => {
   await (heroBackdrop.style.backgroundImage = `url(${urlBackdrop})`);
   return;
+};
+export const logoFn = async (card) => {
+  console.log(card.id);
+  console.log(vars.URL_MOVIE_ID + card.id);
+  const response = await fetch(vars.URL_MOVIE_ID + card.id, vars.options);
+  const data = await response.json();
+  console.log(data);
 };

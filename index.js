@@ -1,6 +1,6 @@
-import { initApp } from "./app/app.js";
+/* import { initApp } from "./app/app.js";
 import * as vars from "./services/vars.js";
-import * as init from "./services/init.js";
-
+import * as init from "./services/init.js"; */
+/* 
 initApp(vars.app);
-init.ignition().then(() => {});
+init.ignition().then(() => {}); */

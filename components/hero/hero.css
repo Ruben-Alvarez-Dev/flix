@@ -12,6 +12,15 @@
       rgba(255, 255, 255, 0) 100%
     ); */
 }
+.heroLogo {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  opacity: 1;
+}
 .heroShadow {
   background-image: linear-gradient(
     to right,

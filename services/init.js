@@ -26,7 +26,6 @@ export const ignition = async () => {
     whereIsSection(document.querySelectorAll("section"));
   }, 300);
 };
-
 export const getMovies = async (url, options, target) => {
   const res = await fetch(url, options);
   const data = await res.json();
@@ -104,14 +103,14 @@ export const mouseOver = async (card) => {
 
   const sectionContainer = await card.closest(".sectionContainer");
   if (sectionContainer && sectionContainer.getAttribute("active")) {
-    await movieCard.renderBackdrop(urlBackdrop, heroBackdrop);
+    await movieCard.renderBackdrop(urlBackdrop);
+    await movieCard.logoFn(card);
   }
 };
 export const mouseClick = async (card) => {
   const urlTrailer = await movieCard.getTrailer(card.id);
   movieCard.renderTrailer(urlTrailer, heroTrailer);
 };
-
 export const whereIsSection = (sections) => {
   main.addEventListener("scroll", () => {
     sections = document.querySelectorAll(".sectionContainer");
