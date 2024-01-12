@@ -301,7 +301,7 @@ body {
   display: inline-flex;
   flex-flow: row wrap;
   align-items: start;
-  gap: 3%;
+  /* gap: 3%; */
   overflow-y: scroll;
   z-index: 32;
 }
@@ -312,7 +312,7 @@ body {
   /* Size and position */
   /* background-color: rgba(255, 0, 255, 0.15); */
   width: 100%;
-  height: 30vh;
+  height: 33vh;
   position: relative;
   /* margin: 0;
   padding: 0; */
@@ -375,10 +375,10 @@ body {
 /* Special FIRST and LAST endpoints */
 .gallery__content__endpoint:first-child {
   /* Size and position */
-  background-color: rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  /* background-color: rgba(0, 0, 0, 0.15); */
+  /* border: 1px solid rgba(0, 0, 0, 0.25); */
   width: 100%;
-  height: 30vh;
+  height: 32.5vh;
   position: relative;
 
   /* Display and distribution */
@@ -386,19 +386,27 @@ body {
 }
 .gallery__content__endpoint:last-child {
   /* Size and position */
-  background-color: rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  /* background-color: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.25); */
   width: 100%;
-  height: 10.3vh;
+  height: 9.3vh;
   position: relative;
 
   /* Display and distribution */
   z-index: 32;
 }
 .gallery__content__endpoint__title {
-  background-color: rgba(0, 136, 255, 0.5);
-  font-size: 5vh;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 255, 17, 0) 0%,
+    rgba(255, 0, 0, 0.2) 25%,
+    rgba(132, 0, 255, 0.2) 50%,
+    rgba(212, 0, 255, 0) 100%
+  );
+  /* background-color: rgba(0, 136, 255, 0.5); */
+  font-size: 3vh;
   color: rgb(255, 255, 255);
+  text-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 1);
   width: 50%;
   height: 20%;
   position: absolute;
@@ -472,8 +480,8 @@ body {
 /* @media screen and (orientation: landscape) {} */
 .gallery__movieCard {
   /* Size and position */
-  background-color: rgb(0, 221, 255);
-  /* max-height: 27vw; */
+  /*   background-color: rgb(0, 221, 255);
+ */ /* max-height: 27vw; */
   height: 28vh;
   width: auto;
   aspect-ratio: 2 / 3;
@@ -484,7 +492,34 @@ body {
   scroll-behavior: smooth;
 
   /* Display and distribution */
+  transition: all 0.5s ease-in-out;
   z-index: 34;
+}
+.gallery__movieCard:hover {
+  transform: scale(1.1);
+}
+.gallery__movieCard:hover .gallery__movieCard__play {
+  transform: scale(0.3);
+  filter: invert(1);
+  opacity: 1;
+}
+.gallery__movieCard:hover .gallery__movieCard__poster {
+  transition: all 0.5s ease-in-out;
+  filter: blur(3px) hue-rotate(180deg) saturate(0%) brightness(0.5);
+}
+.gallery__movieCard__play {
+  width: 100%;
+  top: 25%;
+  position: absolute;
+  z-index: 36;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.gallery__movieCard__poster {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 35;
 }
 .footer {
   /* Size and position */
