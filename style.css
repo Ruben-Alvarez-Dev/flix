@@ -21,22 +21,43 @@ body {
   overflow: hidden;
 
   /* Display and distribution */
-  z-index: 0;
+  /* display: flex;
+  flex-flow: row wrap;
+  z-index: 0; */
+}
+.app {
+  /* Size and position */
+  background-color: rgb(29, 69, 133);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+
+  /*  display: flex; */
+  /*   flex-flow: column nowrap;
+  width: 100vw;
+  height: 100vh; */
 }
 .header {
   /* Size and position */
-  /* background-color: lightblue; */
-  width: 100vw;
-  height: 15vh;
-  position: absolute;
+  /* background-color: rgba(0, 0, 0, 0.397); */
+  width: 100%;
+  height: 7%;
+  position: fixed;
   top: 0;
   left: 0;
+  /* width: 100%;
+  height: 15vh; */
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
 
   /* Display and distribution */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  padding-top: 1%;
+  padding-top: 1.5%;
   align-items: start;
   align-content: center;
 
@@ -62,7 +83,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.25);
   width: 20%;
-  height: 33%;
+  height: 50%;
   position: relative;
 
   /* Display and distribution */
@@ -72,7 +93,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.25);
   width: 20%;
-  height: 33%;
+  height: 50%;
   position: relative;
 
   /* Display and distribution */
@@ -82,7 +103,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.25);
   width: 50%;
-  height: 33%;
+  height: 50%;
   position: relative;
 
   /* Display and distribution */
@@ -90,12 +111,17 @@ body {
 }
 .aside {
   /* Size and position */
-  /* background-color: lightgreen; */
-  width: 50vw;
+  /* background-color: rgba(0, 0, 0, 0.45); */
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 50vw;
   height: 100vh;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0; */
 
   /* Display and distribution */
   display: flex;
@@ -159,12 +185,15 @@ body {
 }
 .hero {
   /* Size and position */
-  background-color: rgb(41, 67, 161);
-  width: 100vw;
+  /* background-color: rgba(120, 17, 238, 0.401); */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  /* width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: absolute; */
   top: 0;
-  left: 50vw;
+  right: 0;
 
   /* Display and distribution */
   z-index: 10;
@@ -188,22 +217,20 @@ body {
   /* Display and distribution */
 }
 .gallery {
-  /* Size and position */
-  /*   background-color: rgba(255, 255, 255, 0.5);
+  /* Size and position */ /*   background-color: rgba(255, 255, 255, 0.5);
  */
-  width: 100vw;
-  height: 55vh;
-  position: absolute;
+  /* background-color: #fce44771; */
+  width: 100%;
+  height: 50%;
+  position: fixed;
   bottom: 0;
   left: 0;
 
-  /* Fade */
-  /*   -webkit-mask: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 75%
-  );
-  mask: linear-gradient(to top, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 90%); */
+  /* width: 100vw;
+  height: 58vh;
+  position: absolute; */
+  bottom: 0;
+  left: 0;
 
   /* Display and distribution */
   display: inline-flex;
@@ -217,7 +244,7 @@ body {
   /* Size and position */
   /* background-color: rgba(255, 166, 0, 1); */
   width: 100vw;
-  height: 55vh;
+  height: 58vh;
   /* height: 35vh; */
   position: absolute;
   bottom: 0;
@@ -230,7 +257,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.5);
   width: 100vw;
-  height: 35vh;
+  height: 45vh;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -247,7 +274,7 @@ body {
   /* Size and position */
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
-  height: 53vh;
+  height: 75vh;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -256,11 +283,25 @@ body {
   scroll-snap-type: y mandatory;
   scroll-snap-type: y proximity;
 
+  /* Fade */
+  /* -webkit-mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 55%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  mask: linear-gradient(to top, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 90%); */
+  -webkit-mask: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 55%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  mask: linear-gradient(to top, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 60%);
+
   /* Display and distribution */
   display: inline-flex;
   flex-flow: row wrap;
   align-items: start;
-  gap: 0%;
+  gap: 3%;
   overflow-y: scroll;
   z-index: 32;
 }
@@ -269,20 +310,62 @@ body {
 }
 .gallery__content__endpoint {
   /* Size and position */
-  background-color: rgba(255, 0, 255, 0.25);
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  width: 100vw;
-  height: 18vh;
+  /* background-color: rgba(255, 0, 255, 0.15); */
+  width: 100%;
+  height: 30vh;
   position: relative;
+  /* margin: 0;
+  padding: 0; */
+
+  /* Display and distribution */
+  /* display: block;
+  flex-flow: row nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: start; */
+
+  /*   overflow-x: scroll;
+  scrollbar-width: none;
+  
+  flex-flow: row nowrap;
+  align-items: start;
+  align-content: start;
+  margin-left: 2vw;
+  gap: 1vw;
+
+  /*   border: 1px solid rgba(0, 0, 0, 0.25);
+ */
+  /*   width: 98vw;
+  height: 29vh;
+  position: relative; */
+
+  /* Right gallery Fade */
+  -webkit-mask: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask: linear-gradient(to right, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
 
   /* Sscoll Snapping */
   scroll-snap-align: start;
   scroll-behavior: smooth;
+  /* scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity; */
 
   /* Display and distribution */
+  /*   overflow-x: scroll;
   scrollbar-width: none;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: end;
+  align-content: end;
+  margin-left: 2vw;
+  gap: 1vw; */
 
-  /* padding: 1%; */
+  /*   display: flex;
+  flex-flow: column nowrap; */
+
   z-index: 32;
 }
 /* This hides scrollbar */
@@ -295,13 +378,10 @@ body {
   background-color: rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.25);
   width: 100%;
-  height: 18vh;
+  height: 30vh;
   position: relative;
 
   /* Display and distribution */
-  /*   scrollbar-width: none;
- */
-  padding: 1%;
   z-index: 32;
 }
 .gallery__content__endpoint:last-child {
@@ -309,29 +389,123 @@ body {
   background-color: rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.25);
   width: 100%;
-  height: 12vh;
+  height: 10.3vh;
   position: relative;
 
   /* Display and distribution */
-  /*   scrollbar-width: none;
- */
-  padding: 1%;
   z-index: 32;
+}
+.gallery__content__endpoint__title {
+  background-color: rgba(0, 136, 255, 0.5);
+  font-size: 5vh;
+  color: rgb(255, 255, 255);
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 35;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  align-items: center;
+}
+.gallery__content__endpoint__section {
+  /* Size and position */
+  /* background-color: rgba(55, 0, 255, 0.25); */
+  /*   border: 1px solid rgba(0, 0, 0, 0.25);
+ */
+  /*   width: 98vw;
+  height: 29vh;
+  position: relative; */
+
+  /* Right gallery Fade */
+  /* -webkit-mask: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%); */
+
+  /* Sscoll Snapping */
+  /* scroll-snap-align: start;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity; */
+
+  /* Size and position */
+  /* background-color: green; */
+  width: 98%;
+  height: 100%;
+  position: absolute;
+
+  /* Right gallery Fade */
+  /* -webkit-mask: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask: linear-gradient(to right, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%); */
+
+  /* Sscoll Snapping */
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
+
+  /* Display and distribution */
+  display: flex;
+  flex-flow: row nowrap;
+  /* align-items: end;
+  align-content: end; */
+  margin-left: 2%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  overflow-y: hidden;
+  gap: 1.5%;
+  z-index: 33;
+}
+.gallery__content__endpoint__section::-webkit-scrollbar {
+  display: none;
+}
+/* @media screen and (orientation: landscape) {} */
+.gallery__movieCard {
+  /* Size and position */
+  background-color: rgb(0, 221, 255);
+  /* max-height: 27vw; */
+  height: 28vh;
+  width: auto;
+  aspect-ratio: 2 / 3;
+  position: relative;
+
+  /* Sscoll Snapping */
+  scroll-snap-align: start;
+  scroll-behavior: smooth;
+
+  /* Display and distribution */
+  z-index: 34;
 }
 .footer {
   /* Size and position */
   /*   background-color: lightyellow; */
-  width: 100vw;
+  /* background-color: #40445387; */
+  width: 100%;
+  height: 7%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  /* width: 100vw;
   height: 10vh;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 0; */
 
   /* Display and distribution */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  padding-bottom: 1%;
+  padding-bottom: 1.5%;
   align-items: end;
   align-content: center;
 
@@ -357,7 +531,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.25);
   width: 20%;
-  height: 33%;
+  height: 50%;
   position: relative;
 
   /* Display and distribution */
@@ -367,7 +541,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.25);
   width: 20%;
-  height: 33%;
+  height: 50%;
   position: relative;
 
   /* Display and distribution */
@@ -377,7 +551,7 @@ body {
   /* Size and position */
   background-color: rgba(255, 255, 255, 0.25);
   width: 20%;
-  height: 33%;
+  height: 50%;
   position: relative;
 
   /* Display and distribution */
