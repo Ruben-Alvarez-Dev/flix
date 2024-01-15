@@ -1,0 +1,18 @@
+.characterCard {
+  scroll-snap-align: center;
+  aspect-ratio: 2/3;
+  border-radius: 25px;
+}
+@media (orientation: landscape) {
+  .characterCard {
+    background-color: rgb(132, 0, 255);
+    height: 12vh;
+  }
+}
+@media (orientation: portrait) {
+  .characterCard {
+    /* Size and position */
+    background-color: orange;
+    height: 24vh;
+  }
+}

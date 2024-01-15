@@ -1,5 +1,5 @@
 import * as movieCard from "../components/main/movieCard/movieCard.js";
-import * as vars from "./vars.js";
+import * as vars from "../utils/vars.js";
 
 export const ignition = async () => {
   getMovies(vars.URL_API_1, vars.options, section1);

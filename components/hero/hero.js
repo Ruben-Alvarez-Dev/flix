@@ -1,13 +1,8 @@
-import "./hero.css";
+import "./Hero.css";
 
-export const heroComponent = () => {
+export const HeroComponent = () => {
   return `
-    
-    <div id="hero" class="hero">
-        <div opacity="0" id="heroBackdrop" class="heroBackdrop"></div>  
-        <iframe id="heroTrailer" class="heroTrailer" src="" frameborder="0" allowfullscreen></iframe>
-        <div id="heroShadow" class="heroShadow"></div>
-    </div>
-    
+  <div id="hero" class="hero">
+  </div>
     `;
 };

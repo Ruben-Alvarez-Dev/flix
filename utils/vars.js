@@ -1,8 +1,6 @@
 export const app = document.getElementById("app");
 
 export const header = document.getElementById("header");
-export const form = document.getElementById("form");
-export const search = document.getElementById("search");
 
 export const hero = document.getElementById("hero");
 export const heroLogo = document.getElementById("heroLogo");

@@ -1,5 +1,5 @@
 import "./movieCard.css";
-import * as vars from "../../../services/vars";
+import * as vars from "../../../utils/vars";
 
 export const template = (movie) => `
 <div id="${movie.id}" class="movieCard">

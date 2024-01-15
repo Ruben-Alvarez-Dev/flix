@@ -1,0 +1,34 @@
+.aside {
+  background-color: brown;
+  transition: all 0.5s ease-in-out;
+  grid-area: aside;
+
+  z-index: 2;
+}
+
+@media (orientation: landscape) {
+  .aside {
+    width: 10vw;
+    position: relative;
+    left: -8vw;
+  }
+  .aside:hover {
+    left: 0;
+  }
+  .aside:hover + .info {
+    left: 8vw;
+  }
+}
+@media (orientation: portrait) {
+  .aside {
+    width: 20vw;
+    position: relative;
+    left: -18vw;
+  }
+  .aside:hover {
+    left: 0;
+  }
+  .aside:hover + .info {
+    left: 18vw;
+  }
+}

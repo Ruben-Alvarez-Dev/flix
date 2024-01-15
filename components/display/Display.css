@@ -1,0 +1,5 @@
+.display {
+  background-color: rgb(95, 0, 62);
+  transition: all 0.5s ease-in-out;
+  grid-area: display;
+}

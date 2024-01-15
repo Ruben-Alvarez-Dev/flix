@@ -1,16 +1,12 @@
-import "./header.css";
+import "./Header.css";
 
-export const headerComponent = () => {
-  /*   return `
-  <header id="header" className="header">
-    <form action="" id="form" className="form">
-        <input
-          type="text"
-          id="search"
-          class="search"
-          placeholder="Search..."
-        />
-      </form>
-    </header>
-  `; */
+export const HeaderComponent = () => {
+  return `
+  <header id="header" class="header">
+    <div id="header__background" class="header__background"></div>
+    <div id="header__logo" class="header__logo"></div>
+    <div id="header__content" class="header__content"></div>
+    <div id="header__topMenu" class="header__topMenu"></div>
+  </header>
+  `;
 };

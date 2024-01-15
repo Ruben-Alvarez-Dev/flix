@@ -1,10 +1,36 @@
 .app {
-  background-color: var(--color_2);
+  background-color: black;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-
-  z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.gridContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  transition: all 0.5s ease-in-out;
+}
+@media (orientation: landscape) {
+  .gridContainer {
+    grid-template-columns: 2% 2% 96%;
+    grid-template-rows: 30% 30% 60%;
+    grid-template-areas:
+      "aside info hero"
+      "aside info hero"
+      "display display display";
+  }
+}
+@media (orientation: portrait) {
+  .gridContainer {
+    grid-template-columns: 2% 98%;
+    grid-template-rows: 25% 15% 60%;
+    grid-template-areas:
+      "aside hero"
+      "aside info"
+      "display display";
+  }
+  .gridContainer[mobile] {
+    padding-bottom: 7vh;
+  }
 }
